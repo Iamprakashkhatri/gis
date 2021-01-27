@@ -1,0 +1,47 @@
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Openlayers web map</title>
+    <link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css"  />
+    <link href="{% static 'libs/v6.5.0-dist/ol.css' %}" rel="stylesheet" type="text/css"  />
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-1">
+        <form>
+            <input id="myInput" placeholder="Some text.." value="">
+            <!-- <input type="submit" id="myBtn" value="Submit"> -->
+        </form>
+            <div class="sidebar">
+                <h2>Layers</h2>
+                <input type="checkbox" name ='baseLayerRadioButton' value='roadnetwork' id='roadnetwork'>Road Network<br>
+                <input type="checkbox" name ='baseLayerRadioButton' value='bridge' id='bridge'>Bridge<br>
+                <input type="checkbox" name ='baseLayerRadioButton' value='causeway' id='causeway'>Causeway<br>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div id='map' class='map'></div>
+        </div>
+    </div>
+    <div class ='overlay-container'>
+        <span class = 'overlay-text' id='feature-name'></span><br>
+        <span class = 'overlay-text' id='feature-additional-info'></span><br>
+        <span id="name"></span>
+    </div>
+    {% block page_content %}{% endblock %}
+    <script src="{% static 'libs/v6.5.0-dist/ol.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'map-initialize.js' %}"></script>
+    <script src="{% static 'make-new-layer.js' %}"></script>
+    <script src="{% static 'base-data-click.js' %}"></script>
+    <script src="{% static 'search.js' %}"></script>
+    <script src="{% static 'index.js' %}"></script>
+    <!-- <script src="{% static 'main.js' %}"></script> -->
+    
+    
+</body>
+</html>
