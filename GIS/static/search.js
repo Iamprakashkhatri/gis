@@ -1,17 +1,15 @@
+  var externalSource = new ol.source.Vector({
+      format: new ol.format.GeoJSON(),
+      url:'static/data/vector_data/sample.geojson'
+  })
+  console.log(name)
+  if (name) {
 
-document.addEventListener("keypress", function(event) {
-    if (event.keyCode === 13) {
-        console.log(event.keyCode)
-        name = document.getElementById("myInput").value;
-        console.log('name',name)
-    }
-});
-
-var propLayer = new ol.layer.Vector({
-      source:RoadNetworkSource,
+    var SearchLayer = new ol.layer.Vector({
+      source:externalSource,
       style: function(feature){
-        if(feature.getProperties().prop=="a"){
-          console.log('------')
+        if(feature.getProperties().prop===name){
+          // console.log('feature',feature)
           return new ol.style.Style({
               fill:new ol.style.Fill({
                   color:'#ff0000'
@@ -23,11 +21,17 @@ var propLayer = new ol.layer.Vector({
         })
         }
         else {
-          console.log('error')
+          // console.log('feature-else',feature)
+          return null
         }
-        
       }
   })
 
-map.addLayer(propLayer)
+map.addLayer(SearchLayer)
+
+  }
+else {
+  map.removeLayer(SearchLayer)
+}
+  
 

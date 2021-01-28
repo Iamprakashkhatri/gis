@@ -3,7 +3,7 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {"prop":'a'},
+      "properties": {"prop":"a"},
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -66,7 +66,7 @@
     },
     {
       "type": "Feature",
-      "properties": {"prop":'b'},
+      "properties": {"prop":"b"},
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -125,7 +125,7 @@
     },
     {
       "type": "Feature",
-      "properties": {"prop":'c'},
+      "properties": {"prop":"c"},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -154,7 +154,7 @@
     },
     {
       "type": "Feature",
-      "properties": {"prop":'d'},
+      "properties": {"prop":"d"},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -183,7 +183,7 @@
     },
     {
       "type": "Feature",
-      "properties": {"prop":'e'},
+      "properties": {"prop":"e"},
       "geometry": {
         "type": "LineString",
         "coordinates": [

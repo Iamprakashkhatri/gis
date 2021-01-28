@@ -8,6 +8,14 @@ const strokeStyle = new ol.style.Stroke({
     color:[46,45,45,1]
 })
 
+const circleStyle = new ol.style.Circle({
+        fill:new ol.style.Fill({
+            color:[245,49,5,1]
+        }),
+        radius:7,
+        stroke:strokeStyle
+    })
+
 const RoadNetworkSource = new ol.source.Vector({
         url:'static/data/vector_data/sample.geojson',
         format: new ol.format.GeoJSON()
@@ -41,15 +49,16 @@ const BridgeGeoJSON = new ol.layer.VectorImage({
 
 const CauseWayGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-        url:'static/data/vector_data/map-2.geojson',
+        url:'static/data/vector_data/feature.geojson',
         format: new ol.format.GeoJSON()
 
     }),
-    visible:false,
+    visible:true,
     title:'causeway',
     style: new ol.style.Style({
             fill:fillStyle,
             stroke:strokeStyle,
+            // image:circleStyle
         })
 
 });
@@ -65,7 +74,6 @@ var highlightStyle = new ol.style.Style({
 });
 
 var selected = null;
-console.log('sele',)
 
 map.on('pointermove', function (e) {
   if (selected !== null) {
