@@ -13,7 +13,6 @@ def roaddata(request):
     boundary = serializers.serialize('geojson', get_roads)
 
     # json_str = simplejson.dumps(road)
-    print('boundary---',boundary)
     return HttpResponse(boundary, content_type='JSON') 
 
 class MapView(TemplateView):
