@@ -34,7 +34,7 @@ const RoadNetworkGeoJSON = new ol.layer.VectorImage({
 
 const BridgeGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-        url:'static/data/vector_data/polygon.geojson',
+        url:'static/data/vector_data/polygon',
         format: new ol.format.GeoJSON()
 
     }),
@@ -49,7 +49,7 @@ const BridgeGeoJSON = new ol.layer.VectorImage({
 
 const CauseWayGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-        url:'static/data/vector_data/feature.geojson',
+        url:"http://127.0.0.1:8000/road-data/",
         format: new ol.format.GeoJSON()
 
     }),
@@ -62,6 +62,7 @@ const CauseWayGeoJSON = new ol.layer.VectorImage({
         })
 
 });
+
 
 var highlightStyle = new ol.style.Style({
   fill: new ol.style.Fill({
