@@ -63,6 +63,12 @@ const CauseWayGeoJSON = new ol.layer.VectorImage({
 
 });
 
+const baseLayerGroup = new ol.layer.Group({
+        layers: [
+            RoadNetworkSource,RoadNetworkGeoJSON,BridgeGeoJSON
+        ]
+
+    })
 
 var highlightStyle = new ol.style.Style({
   fill: new ol.style.Fill({

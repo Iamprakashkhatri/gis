@@ -1,3 +1,4 @@
+
   var externalSource = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url:'static/data/vector_data/sample.geojson'

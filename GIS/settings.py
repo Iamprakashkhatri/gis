@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'road',
+    'leaflet',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ DATABASES = {
         'default': {
             # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
             'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'NAME': 'gis',                      # Or path to database file if using sqlite3.
+            'NAME': 'gis1',                      # Or path to database file if using sqlite3.
             'USER': 'postgres',                      # Not used with sqlite3.
             'PASSWORD': 'postgres',                  # Not used with sqlite3.
             # Set to empty string for localhost. Not used with sqlite3.
