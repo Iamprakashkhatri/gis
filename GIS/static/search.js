@@ -36,3 +36,27 @@ else {
 }
   
 
+function getAllofEm () {
+
+var allLayers = [];
+
+var mapLayers = map.getLayers().getArray();
+console.log('layers',mapLayers)
+
+mapLayers.forEach(function (layer, i) {
+  console.log('layer',layer)
+    if (layer instanceof ol.layer.Group && layer.getVisible() == true ) {
+        layer.getLayers().getArray().forEach(function(sublayer, j, layers) {
+            allLayers.push(sublayer);
+            console.log('layers-equal',allLayers)
+        })
+    } else if ( !(layer instanceof ol.layer.Group) && layer.getVisible() == true ) {
+            allLayers.push(layer);
+            console.log('layers-unequal',layer[1])
+    }
+});
+
+return allLayers;
+}
+
+getAllofEm()

@@ -11,7 +11,7 @@ def roaddata(request):
     # if(id):
     #     road = get_roads.filter(pk=id)
     boundary = serializers.serialize('geojson', get_roads)
-    print('boundary',boundary)
+    # print('boundary',boundary)
 
     # json_str = simplejson.dumps(road)
     return HttpResponse(boundary, content_type='JSON') 
