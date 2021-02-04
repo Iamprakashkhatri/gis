@@ -7,4 +7,5 @@ urlpatterns = [
 	path('road-data/',roaddata, name="road-data"),
 	path('mapview/',MapView.as_view(),name='map-view'),
 	path('test/',test,name='test'),
+	path('addroad/',addroad,name='add-new-road')
 ]

@@ -6,11 +6,12 @@ from .models import Roads
 road_mapping = {
     'section_code' : 'Section_co',
     'road_code' : 'Roade_code',
+    # 'name':'name',
     'geom' : 'MULTILINESTRING',
 }
 
-world_shp = Path(__file__).resolve().parent /'sunwal_road.geojson'
-ds = (str(world_shp))
+world_shp = Path(__file__).resolve().parent /'road.geojson'
+ds = DataSource(str(world_shp))
 
 def run(verbose=True):
     lm = LayerMapping(Roads, ds, road_mapping, transform=False)

@@ -10,8 +10,11 @@ def roaddata(request):
     get_roads = Roads.objects.all()
     # if(id):
     #     road = get_roads.filter(pk=id)
+    # ser_roads = Roads.objects.get(id=245)
+    # serialize = json.dumps(ser_roads)
+    # print('roads',get_roads.geom)
     boundary = serializers.serialize('geojson', get_roads)
-    # print('boundary',boundary)
+    print('boundary',boundary)
 
     # json_str = simplejson.dumps(road)
     return HttpResponse(boundary, content_type='JSON') 
@@ -45,6 +48,13 @@ def test(request):
 	jsondata = json.dumps(data_list)
 	# jsondata = serializers.serialize('geojson', json.dumps(list(data_list)))
 	print('jsondata',jsondata)
-	return HttpResponse(jsondata, content_type='JSON') 
+	return HttpResponse(jsondata, content_type='JSON')
+
+def addroad(request):
+    coordinates = request.GET.get('coordinates', None)
+    print('coordinates',coordinates)
+    cart = Roads.objects.create(geom=coordinates)    
+    return JsonResponse({'data':200})
+ 
 
 

@@ -7,6 +7,7 @@
     <link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css"  />
     <link href="{% static 'libs/v6.5.0-dist/ol.css' %}" rel="stylesheet" type="text/css"  />
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/jquery-toast/jquery.toast.min.css' %}" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -30,6 +31,11 @@
                 <input type="radio" name ='baseLayerRadioButton' value='GoogleHybrid'>Google Hybrid<br>
                 <input type="radio" name='baseLayerRadioButton' value='ESRIimage'>ESRI image <br>
             </div>
+            <div class="sidebar-3">
+                <h2>Draw a new layer</h2>
+                <input type="checkbox" name ='baseLayerRadioButton' value='drawnewlayer' id='drawnewlayer'>Draw New Layer<br>
+                
+            </div>
         </div>
         <div class="grid-2">
             <div id='map' class='map'></div>
@@ -44,6 +50,11 @@
     {% block page_content %}{% endblock %}
     <script src="{% static 'libs/v6.5.0-dist/ol.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Tost-->
+ <script src="{% static 'assets/jquery-toast/jquery.toast.min.js' %}"></script>
+    <!-- toastr init js-->
+    <script src="{% static 'assets/pages/toastr.init.js' %}"></script>
     <script src="{% static 'map-initialize.js' %}"></script>
     <script src="{% static 'make-new-layer.js' %}"></script>
     <script src="{% static 'base-data-click.js' %}"></script>
