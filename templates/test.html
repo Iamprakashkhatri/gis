@@ -15,3 +15,79 @@
 
     
 {% endblock page_content %}
+
+<div class="main-panel">
+        <div class="content">
+
+            <div id="map"></div>
+
+        </div>
+
+        <div id="attr">
+            <div class="tableDisplay">
+                <table id="attribute" class="ui small celled unstackable table">
+                    <thead id="attrHead">
+                        <tr class="center aligned">
+                            <th>Attribute</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbodyContent"></tbody>
+                </table>
+            </div>
+            <div class="ui red icon button" id="cancelAttr">Close</div>
+        </div>
+
+</div>
+        onEachFeature: function(feature, layer) {
+            layer.myTag = subCategory;
+            layer.on({
+
+                'mouseover': function(e) {
+                    highlight(e.target);
+                },
+                'mouseout': function(e) {
+                    dehighlight(e.target);
+                },
+
+                'click': function(e) {
+                    $('.tbodyContent').remove();
+                    var tbody = '<tbody class="tbodyContent">';
+                    for (var key in e.target.feature.properties) {
+
+
+                        tbody +=
+                            ('<tr class="center aligned"><td>' + key + '</td><td>' + e.target.feature.properties[key] + '</td></tr>');
+                    }
+
+
+                    $('#attribute').append(tbody + '</tbody>');
+                    $('#attr').fadeIn(300);
+                    // map.panTo(e.latlng);
+                    select(e.target);
+
+
+                }
+
+
+            });
+
+
+
+
+            // sidebar.setContent('test <b>test</b> test');
+            // sidebar.show();
+            // var popupcontent = [];
+            // for (var prop in feature.properties) {
+            //   popupcontent.push(prop + ": " + feature.properties[prop]);
+
+            // }
+            // layer.bindPopup(`<table><tr><td>${prop}</td><td>${feature.properties[prop]}</td></tr></table>`);
+            // console.log(popupcontent);
+            // layer.bindPopup(popupcontent.join("<br />"));
+
+
+
+
+
+        }

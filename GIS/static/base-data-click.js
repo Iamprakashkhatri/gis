@@ -81,7 +81,7 @@ $(document).ready(function () {
                                       function (i) {
                                          "use strict";
                                          console.log(i)
-                                         i.NotificationApp.send("Update !", `Order Status Updated`, "top-right", "#3b98b5", "info")
+                                         i.NotificationApp.send("Added !", `Layer for new road added`, "top-right", "#3b98b5", "info")
 
                                       }(window.jQuery);
                                     // document.getElementById('order_status_').innerText=data['status'];
@@ -92,10 +92,9 @@ $(document).ready(function () {
                         // self.Map.olMap.removeInteraction(currentProcess);
                     });
 
-
         }
         else if ($(this).prop("checked") == false) {
-          map.removeInteraction(currentProcess);
+          map.getInteractions(currentProcess).pop();
 
         }
       });

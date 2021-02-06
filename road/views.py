@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,JsonResponse
 from django.views.generic import TemplateView
 # from django.utils import simplejson
@@ -14,7 +14,7 @@ def roaddata(request):
     # serialize = json.dumps(ser_roads)
     # print('roads',get_roads.geom)
     boundary = serializers.serialize('geojson', get_roads)
-    print('boundary',boundary)
+    # print('boundary',boundary)
 
     # json_str = simplejson.dumps(road)
     return HttpResponse(boundary, content_type='JSON') 
@@ -55,6 +55,16 @@ def addroad(request):
     print('coordinates',coordinates)
     cart = Roads.objects.create(geom=coordinates)    
     return JsonResponse({'data':200})
+
+
+def deleteRoad(request):
+	get_pk = request.GET.get('pk', None)
+	road = get_object_or_404(Roads, pk=get_pk)
+	print('road',road)
+	road.delete()
+	return JsonResponse({'data':200})
+
+
  
 
 

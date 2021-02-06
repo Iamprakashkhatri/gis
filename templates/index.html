@@ -47,6 +47,31 @@
         <span id="name"></span>
     </div>
 
+    <div class="main-panel">
+        <div class="content">
+
+            <div id="map"></div>
+
+        </div>
+
+        <div id="attr">
+            <div class="tableDisplay">
+                <table id="attribute" class="ui small celled unstackable table">
+                    <thead id="attrHead">
+                        <tr class="center aligned">
+                            <th>Attribute</th>
+                            <th>Value</th>
+                            <th id ="delete">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbodyContent"></tbody>
+                </table>
+            </div>
+            <div class="ui red icon button" id="cancelAttr">Close</div>
+        </div>
+
+</div>
+
     {% block page_content %}{% endblock %}
     <script src="{% static 'libs/v6.5.0-dist/ol.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
